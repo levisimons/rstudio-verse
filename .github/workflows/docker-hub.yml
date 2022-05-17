@@ -12,12 +12,6 @@ jobs:
         name: checkout
         uses: actions/checkout@v2
       -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
         name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
@@ -31,16 +25,7 @@ jobs:
           context: latest
           file: latest/Dockerfile
           push: true
-          tags: cyversevice/rstudio-verse:latest
-      -
-        name: Build and Push v4.2.0
-        id: docker_build_four_one_two
-        uses: docker/build-push-action@v2
-        with:
-          context: 4.2.0
-          file: latest/Dockerfile
-          push: true
-          tags: cyversevice/rstudio-verse:4.2.0   
+          tags: cyversevice/rstudio-verse:latest  
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
