@@ -25,7 +25,7 @@ jobs:
           context: latest
           file: latest/Dockerfile
           push: true
-          tags: cyversevice/rstudio-verse:latest  
+          tags: levisimons/rstudio-verse:latest  
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
